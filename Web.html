@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>>/ 5Ghz"</title>
+    <style>
+        body {
+            background-color: #dbdbce;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body.dark-theme {
+            background-color: #1e1e1e;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .theme-toggle {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .password-card {
+            background-color: #333;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin: 20px;
+            padding: 20px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .password-card h2 {
+            margin-top: 0;
+        }
+
+        .password-card button {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="dark-theme">
+
+<header>
+    <h1>>/ 5Ghz"</h1>
+    <button class="theme-toggle" onclick="toggleTheme()">Changer de thème</button>
+</header>
+
+<section>
+    <div class="password-card">
+        <h2>Mot de passe sécurisé</h2>
+        <p id="password-result"></p>
+        <button onclick="generatePassword()">Générer un mot de passe</button>
+    </div>
+</section>
+
+<script>
+    const body = document.querySelector('body');
+    const themeToggle = document.querySelector('.theme-toggle');
+    const passwordResult = document.querySelector('#password-result');
+
+    function toggleTheme() {
+        if (body.classList.contains('dark-theme')) {
+            body.classList.remove('dark-theme');
+            themeToggle.textContent = 'Changer de thème';
+        } else {
+            body.classList.add('dark-theme');
+            themeToggle.textContent = 'Changer de thème';
+        }
+    }
+
+    function generatePassword() {
+        const length = 10; // Longueur du mot de passe (modifiable selon vos besoins)
+        const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
+        let password = '';
+        for (let i = 0; i < length; i++) {
+            const randomIndex = Math.floor(Math.random() * charset.length);
+            password += charset[randomIndex];
+        }
+        passwordResult.textContent = password;
+    }
+</script>
+
+</body>
+</html>
